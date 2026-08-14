@@ -124,8 +124,8 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr√
         </p>
       </div>
       <figure class="foto">
-        <img src="<?= e(v('/assets/img/juguetes.webp')) ?>" alt="La Dra. Arleth muestra la repisa de juguetes tejidos del consultorio" width="1200" height="1200" loading="lazy">
-        <figcaption>Los premios de la repisa: tejidos por la doctora, uno por visita valiente.</figcaption>
+        <img src="<?= e(v('/assets/img/en-accion.webp')) ?>" alt="La Dra. Arleth Luna atendiendo a un paciente peque√±o en el consultorio" width="1200" height="1200" loading="lazy">
+        <figcaption>As√≠ se ve una cita: con calma, con colores y sin batas que asusten.</figcaption>
       </figure>
     </div>
 
@@ -251,7 +251,8 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr√
       <a class="btn btn--wa btn--grande" href="<?= e($wa) ?>" target="_blank" rel="noopener">Escribir por WhatsApp</a>
 
       <figure class="foto foto--consultorio">
-        <img src="<?= e(v('/assets/img/en-accion.webp')) ?>" alt="La Dra. Arleth Luna atendiendo a un paciente peque√±o en el consultorio" width="1200" height="1200" loading="lazy">
+        <img src="<?= e(v('/assets/img/odontopediatra.webp')) ?>" alt="La Dra. Arleth muestra la repisa de juguetes tejidos del consultorio" width="1200" height="1200" loading="lazy">
+        <figcaption class="foto__pie-claro">Los premios de la repisa: tejidos por la doctora, uno por visita valiente.</figcaption>
       </figure>
     </div>
 
