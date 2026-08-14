@@ -1,39 +1,20 @@
 /* ==========================================================================
    Berrinchitosdent — hoja única.
-   Paleta: azul como color de acción y rosa como color de marca, sobre
-   superficies pastel. Los tokens se nombran por FUNCIÓN, no por color: el día
-   que cambie la paleta se tocan estos valores y nada más.
+   Paleta: buganvilia (la flor de la CDMX), mango y menta sobre papel cálido.
+   Deliberadamente NO azul bebé: ese es el uniforme de todo consultorio infantil.
    ========================================================================== */
 
 :root {
-  --papel:        #FBFCFE;  /* fondo base, blanco apenas azulado */
-  --tinta:        #16294A;  /* azul noche: texto y secciones oscuras */
-  --tinta-suave:  #4E617F;  /* texto secundario */
-
-  --primario:     #2563C9;  /* azul: botones, enlaces, títulos de dato */
-  --primario-osc: #1B4CA0;  /* hover del primario */
-
-  --acento:       #E85C93;  /* rosa: marca y detalles gráficos sobre claro */
-  --acento-claro: #FFB3CD;  /* rosa pálido: legible sobre el azul noche */
-
-  --sup-a:        #E9F1FD;  /* superficie azul pálido */
-  --sup-b:        #FDEDF3;  /* superficie rosa pálido */
-  --linea:        #DCE5F2;
-
-  --sobre-oscuro:       #C7D5EC;  /* texto sobre --tinta */
-  --sobre-oscuro-tenue: #8FA3C2;  /* secundario sobre --tinta */
-
-  /* Rosa original de la marca. Vive fuera de la paleta azul a propósito: es el
-     color de "escribinos", el único punto donde el sitio pide una acción. */
-  --wa:      #E23E6B;
-  --wa-osc:  #C22753;
-
-  /* El pie conserva el morado y el rosa de la primera versión. Colores propios
-     y no tokens globales: es una isla deliberada, no un descuido. */
-  --pie-fondo:  #2A1B3D;
-  --pie-texto:  #B9A9CC;
-  --pie-tenue:  #8B7B9E;
-  --pie-marca:  #FFFBF7;
+  --papel:        #FFFBF7;
+  --tinta:        #2A1B3D;
+  --tinta-suave:  #61507A;
+  --buganvilia:   #E23E6B;
+  --buganvilia-o: #C22753;
+  --mango:        #FFC53D;
+  --menta:        #2FB89A;
+  --lila:         #F5EDFC;
+  --celeste:      #E9F1FD;  /* fondo de "Cuidado en casa" (pedido del cliente) */
+  --linea:        #E8DCEF;
 
   --display: 'Gabarito', system-ui, sans-serif;
   --texto:   'Karla', system-ui, sans-serif;
@@ -75,7 +56,7 @@ a { color: inherit; }
 @media (min-width: 48rem) { .br-md { display: inline; } }
 
 :focus-visible {
-  outline: 3px solid var(--primario);
+  outline: 3px solid var(--buganvilia);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -108,8 +89,8 @@ a { color: inherit; }
 }
 
 .seccion { padding-block: var(--paso); }
-.seccion--sup-a  { background: var(--sup-a); }
-.seccion--sup-b { background: var(--sup-b); }
+.seccion--lila  { background: var(--lila); }
+.seccion--celeste { background: var(--celeste); }
 .seccion--tinta { background: var(--tinta); color: var(--papel); }
 
 /* --- Tipografía de sección ----------------------------------------------- */
@@ -120,10 +101,10 @@ a { color: inherit; }
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--primario);
+  color: var(--buganvilia);
   margin-bottom: 0.9rem;
 }
-.eyebrow--claro { color: var(--acento-claro); }
+.eyebrow--claro { color: var(--mango); }
 
 .titulo {
   font-size: clamp(2rem, 1.4rem + 2.8vw, 3.4rem);
@@ -138,12 +119,12 @@ a { color: inherit; }
   font-size: 1.075em;
   color: var(--tinta-suave);
 }
-.entrada--claro { color: var(--sobre-oscuro); }
+.entrada--claro { color: #D9CDE8; }
 
 .nota {
   margin-top: 1.5rem;
   padding-left: 1.1rem;
-  border-left: 4px solid var(--acento);
+  border-left: 4px solid var(--mango);
   font-style: italic;
   color: var(--tinta-suave);
 }
@@ -166,8 +147,8 @@ a { color: inherit; }
 }
 .btn:hover { transform: translateY(-2px); }
 
-.btn--wa { background: var(--wa); color: #fff; }
-.btn--wa:hover { background: var(--wa-osc); }
+.btn--wa { background: var(--buganvilia); color: #fff; }
+.btn--wa:hover { background: var(--buganvilia-o); }
 
 .btn--fantasma { border-color: currentColor; color: var(--tinta); }
 .btn--fantasma:hover { background: var(--tinta); color: var(--papel); }
@@ -205,8 +186,8 @@ a { color: inherit; }
   letter-spacing: -0.03em;
   margin-right: auto;
 }
-.marca__diente { display: block; width: 0.85rem; color: var(--acento); }
-.marca__dent { color: var(--acento); }
+.marca__diente { display: block; width: 0.85rem; color: var(--buganvilia); }
+.marca__dent { color: var(--buganvilia); }
 
 .nav { display: none; gap: 1.4rem; }
 .nav a {
@@ -217,7 +198,7 @@ a { color: inherit; }
   padding-block: 0.3rem;
   border-bottom: 2px solid transparent;
 }
-.nav a:hover { color: var(--tinta); border-bottom-color: var(--acento); }
+.nav a:hover { color: var(--tinta); border-bottom-color: var(--mango); }
 @media (min-width: 64rem) { .nav { display: flex; } }
 
 .barra__cta { display: none; }
@@ -228,8 +209,8 @@ a { color: inherit; }
 .hero {
   padding-block: clamp(3rem, 7vw, 6rem) clamp(2.5rem, 5vw, 4rem);
   background:
-    radial-gradient(60rem 30rem at 85% -10%, #FCE4EE 0%, transparent 60%),
-    radial-gradient(45rem 25rem at 5% 10%, #E2EDFC 0%, transparent 55%);
+    radial-gradient(60rem 30rem at 85% -10%, #FDE7EF 0%, transparent 60%),
+    radial-gradient(45rem 25rem at 5% 10%, #FFF4DA 0%, transparent 55%);
 }
 
 .hero__caja {
@@ -283,18 +264,18 @@ a { color: inherit; }
 }
 .dientes__uno {
   width: clamp(2rem, 5vw, 3.1rem);
-  filter: drop-shadow(0 4px 0 #DFEAFA) drop-shadow(0 7px 10px rgba(22, 41, 74, 0.10));
+  filter: drop-shadow(0 4px 0 #EFE0F8) drop-shadow(0 7px 10px rgba(42, 27, 61, 0.09));
 }
 /* El contorno es lo que separa el diente del papel: sin él, blanco sobre crema
    desaparece y el hueco termina resaltando más que los dientes. */
-.dientes__uno svg { display: block; fill: #fff; stroke: #BFD3EE; stroke-width: 1.1; }
+.dientes__uno svg { display: block; fill: #fff; stroke: #D9C6E8; stroke-width: 1.1; }
 
 /* El que ya se cayó: contorno punteado y nada adentro. Relleno de cualquier
    color se lee como "diente de otro color", no como ausencia. */
 .dientes__uno--hueco { filter: none; }
 .dientes__uno--hueco svg {
   fill: none;
-  stroke: #9DB8E0;
+  stroke: #C6AFDA;
   stroke-width: 1.6;
   stroke-dasharray: 3 2.6;
   stroke-linecap: round;
@@ -378,8 +359,8 @@ a { color: inherit; }
   transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
-.ficha__titulo { font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); font-weight: 800; color: var(--acento-claro); }
-.ficha__texto  { margin-top: 0.85rem; max-width: 60ch; color: var(--sobre-oscuro); font-size: 1.05em; }
+.ficha__titulo { font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); font-weight: 800; color: var(--mango); }
+.ficha__texto  { margin-top: 0.85rem; max-width: 60ch; color: #E3D9EE; font-size: 1.05em; }
 
 /* Estado activo: una regla por nivel, con la misma especificidad. */
 #nivel1:checked ~ .escala__panel .ficha--1,
@@ -397,7 +378,7 @@ a { color: inherit; }
 #nivel3:checked ~ .escala__barra label[for="nivel3"],
 #nivel4:checked ~ .escala__barra label[for="nivel4"],
 #nivel5:checked ~ .escala__barra label[for="nivel5"] {
-  border-color: var(--acento);
+  border-color: var(--buganvilia);
   background: #fff;
 }
 
@@ -406,7 +387,7 @@ a { color: inherit; }
 #nivel3:checked ~ .escala__barra label[for="nivel3"] .escala__num,
 #nivel4:checked ~ .escala__barra label[for="nivel4"] .escala__num,
 #nivel5:checked ~ .escala__barra label[for="nivel5"] .escala__num {
-  color: var(--acento);
+  color: var(--buganvilia);
 }
 
 /* El foco de teclado vive en el radio, pero se ve en su etiqueta. */
@@ -415,7 +396,7 @@ a { color: inherit; }
 #nivel3:focus-visible ~ .escala__barra label[for="nivel3"],
 #nivel4:focus-visible ~ .escala__barra label[for="nivel4"],
 #nivel5:focus-visible ~ .escala__barra label[for="nivel5"] {
-  outline: 3px solid var(--primario);
+  outline: 3px solid var(--buganvilia);
   outline-offset: 3px;
 }
 
@@ -446,7 +427,7 @@ a { color: inherit; }
   border-radius: var(--r-medio);
   transition: transform 0.16s ease, border-color 0.16s ease;
 }
-.tarjeta:hover { transform: translateY(-3px); border-color: var(--primario); }
+.tarjeta:hover { transform: translateY(-3px); border-color: var(--buganvilia); }
 
 .tarjeta__titulo { font-size: 1.15rem; font-weight: 700; }
 .tarjeta__texto  { margin-top: 0.5rem; font-size: 0.95rem; color: var(--tinta-suave); }
@@ -466,8 +447,8 @@ a { color: inherit; }
   padding: clamp(1.5rem, 3vw, 2rem);
 }
 
-.etapa__cabeza { padding-bottom: 1rem; border-bottom: 2px dashed var(--primario); }
-.etapa__edad { font-size: 1.5rem; font-weight: 800; color: var(--primario); }
+.etapa__cabeza { padding-bottom: 1rem; border-bottom: 2px dashed var(--menta); }
+.etapa__edad { font-size: 1.5rem; font-weight: 800; color: var(--menta); }
 .etapa__hito { margin-top: 0.35rem; font-size: 0.92rem; font-weight: 700; color: var(--tinta); }
 
 .etapa__lista {
@@ -491,7 +472,7 @@ a { color: inherit; }
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
-  background: var(--acento);
+  background: var(--mango);
 }
 
 /* --- Adultos ------------------------------------------------------------- */
@@ -510,7 +491,7 @@ a { color: inherit; }
   font-size: 1rem;
   padding: 0.7rem 1.25rem;
   border-radius: 999px;
-  background: var(--sup-a);
+  background: var(--lila);
   border: 2px solid var(--linea);
 }
 
@@ -523,30 +504,30 @@ a { color: inherit; }
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--acento-claro);
+  color: var(--mango);
   margin-bottom: 0.5rem;
 }
-.dato__valor { color: var(--sobre-oscuro); }
+.dato__valor { color: #D9CDE8; }
 
 .enlace {
   color: var(--papel);
-  text-decoration-color: var(--primario);
+  text-decoration-color: var(--buganvilia);
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
-.enlace:hover { color: var(--acento-claro); }
+.enlace:hover { color: var(--mango); }
 
 .horarios { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
 .horarios li {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  color: var(--sobre-oscuro);
+  color: #D9CDE8;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 /* El día cerrado se muestra, pero no compite con los días útiles. */
-.horarios__cerrado { color: var(--sobre-oscuro-tenue); }
+.horarios__cerrado { color: #8B7B9E; }
 
 /* --- Botón flotante (solo móvil) ----------------------------------------- */
 
@@ -561,7 +542,7 @@ a { color: inherit; }
   justify-content: center;
   padding: 1rem;
   border-radius: 999px;
-  background: var(--wa);
+  background: var(--buganvilia);
   color: #fff;
   font-family: var(--display);
   font-weight: 700;
@@ -576,23 +557,21 @@ a { color: inherit; }
 /* --- Pie ----------------------------------------------------------------- */
 
 .pie {
-  background: var(--pie-fondo);
-  color: var(--pie-texto);
+  background: var(--tinta);
+  color: #B9A9CC;
   padding-block: 3rem;
-  border-top: 6px solid var(--wa);
+  border-top: 6px solid var(--buganvilia);
 }
 .pie__caja { text-align: center; }
 .pie__marca {
   font-family: var(--display);
   font-weight: 900;
   font-size: 1.35rem;
-  color: var(--pie-marca);
+  color: var(--papel);
   letter-spacing: -0.03em;
 }
-/* El "dent" del pie sigue al rosa del pie, no al acento del resto del sitio. */
-.pie__marca .marca__dent { color: var(--wa); }
 .pie__linea { margin-top: 0.6rem; font-size: 0.95rem; }
-.pie__legal { margin-top: 1rem; font-size: 0.82rem; color: var(--pie-tenue); }
+.pie__legal { margin-top: 1rem; font-size: 0.82rem; color: #8B7B9E; }
 
 /* --- Accesibilidad ------------------------------------------------------- */
 

@@ -112,7 +112,7 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr�
   </div>
 </section>
 
-<section class="seccion seccion--sup-a" id="primera-visita">
+<section class="seccion seccion--lila" id="primera-visita">
   <div class="caja">
     <p class="eyebrow">La primera visita</p>
     <h2 class="titulo">¿Qué tan berrinchudo viene hoy?</h2>
@@ -171,7 +171,7 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr�
   </div>
 </section>
 
-<section class="seccion seccion--sup-b" id="en-casa">
+<section class="seccion seccion--celeste" id="en-casa">
   <div class="caja">
     <p class="eyebrow">Cuidado en casa</p>
     <h2 class="titulo">La mayor parte del trabajo <br class="br-md">pasa en tu baño, no aquí</h2>
