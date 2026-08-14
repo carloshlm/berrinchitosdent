@@ -93,9 +93,13 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr�
         // Todos los días que abren, no solo el primero: si mañana agregan
         // un día al config, el hero lo muestra sin tocar esta línea.
         $abiertos = array_filter($cfg['horarios'], fn($h) => !empty($h['abre']));
-        $partes = array_map(fn($h) => e($h['dias']) . ', ' . e($h['horas']), $abiertos);
       ?>
-      <p class="hero__horario"><?= implode(' <span class="hero__horario-sep">·</span> ', $partes) ?></p>
+      <div class="hero__horario">
+        <?php foreach ($abiertos as $h): ?>
+          <span class="hero__horario-dia"><?= e($h['dias']) ?></span>
+          <span class="hero__horario-horas"><?= e($h['horas']) ?></span>
+        <?php endforeach; ?>
+      </div>
     <?php endif; ?>
 
     <div class="dientes" aria-hidden="true">

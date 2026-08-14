@@ -282,14 +282,22 @@ a { color: inherit; }
 
 /* Sale del config, no escrito a mano: si cambian los horarios, esta línea
    cambia con ellos en lugar de quedar mintiendo. */
+/* Mini-tabla: días a la izquierda, horas a la derecha — el mismo patrón que
+   la tabla de horarios de Ubicación. Dos columnas de ancho contenido,
+   centradas como bloque dentro del hero. */
 .hero__horario {
-  margin-top: 1.25rem;
+  margin: 1.25rem auto 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.35rem 1.75rem;
+  width: fit-content;
   font-family: var(--display);
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--tinta-suave);
 }
-.hero__horario-sep { color: var(--buganvilia); margin-inline: 0.35rem; }
+.hero__horario-dia { text-align: left; }
+.hero__horario-horas { text-align: right; }
 
 /* La hilera de dientes de leche: uno está flojo y otro ya se cayó.
    Es el retrato exacto de un niño de seis años. */
