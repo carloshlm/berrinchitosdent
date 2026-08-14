@@ -251,7 +251,7 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr√
       <a class="btn btn--wa btn--grande" href="<?= e($wa) ?>" target="_blank" rel="noopener">Escribir por WhatsApp</a>
 
       <figure class="foto foto--consultorio">
-        <img src="<?= e(v('/assets/img/odontopediatra.webp')) ?>" alt="La Dra. Arleth muestra la repisa de juguetes tejidos del consultorio" width="1200" height="1200" loading="lazy">
+        <img src="<?= e(v('/assets/img/odontopediatra.webp')) ?>" alt="La Dra. Arleth con los adornos infantiles que ella teji√≥" width="1200" height="1200" loading="lazy">
       </figure>
     </div>
 
