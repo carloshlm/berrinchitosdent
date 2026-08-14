@@ -26,9 +26,8 @@ return [
     'ciudad'   => 'Ciudad de México',
     'maps'     => 'https://www.google.com/maps/search/?api=1&query=Avenida+Baja+California+218+06760+Ciudad+de+Mexico',
 
-    // Referencia de transporte. Ajustar el número de cuadras cuando esté
-    // confirmado en el terreno — no publicar distancias inventadas.
-    'referencia' => 'A unas cuadras del Metrobús Centro Médico (Línea 3)',
+    // Referencia de transporte, confirmada en el terreno por el cliente.
+    'referencia' => 'A una cuadra del Metrobús Chilpancingo (Línea 1)',
 
     /**
      * Si esto pasa a false, el sitio deja de publicar horarios y vuelve a
