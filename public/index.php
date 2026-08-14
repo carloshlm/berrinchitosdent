@@ -45,8 +45,7 @@ $en_casa = [
       'edad' => '0 a 2 años',
       'hito' => 'Sale el primer diente cerca de los 6 meses',
       'puntos' => [
-        'La higiene bucal comienza con el primer diente. Al iniciar la alimentación complementaria (alrededor de los 6 meses), ya no es necesario limpiar las encías previamente. Tan pronto como asome el primer diente o se introduzcan las primeras papillas y sólidos, empieza a cepillar directamente con un cepillo infantil suave y pasta con flúor.',
-        'En cuanto salga un diente, cepillo suave dos veces al día y pasta con flúor del tamaño de un grano de arroz.',
+        'La higiene bucal comienza con el primer diente. Al iniciar la alimentación complementaria (alrededor de los 6 meses), ya no es necesario limpiar las encías previamente. Tan pronto como asome el primer diente o se introduzcan las primeras papillas y sólidos, empieza a cepillar dos veces al día directamente con un cepillo infantil suave y pasta con flúor del tamaño de un grano de arroz.',
         'Nada de dormir con la mamila puesta: la leche que queda toda la noche produce caries en los dientes de adelante.',
         'La primera visita al dentista es al cumplir un año, aunque todo se vea bien.',
       ],
