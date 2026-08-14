@@ -23,6 +23,18 @@
   --sobre-oscuro:       #C7D5EC;  /* texto sobre --tinta */
   --sobre-oscuro-tenue: #8FA3C2;  /* secundario sobre --tinta */
 
+  /* Rosa original de la marca. Vive fuera de la paleta azul a propósito: es el
+     color de "escribinos", el único punto donde el sitio pide una acción. */
+  --wa:      #E23E6B;
+  --wa-osc:  #C22753;
+
+  /* El pie conserva el morado y el rosa de la primera versión. Colores propios
+     y no tokens globales: es una isla deliberada, no un descuido. */
+  --pie-fondo:  #2A1B3D;
+  --pie-texto:  #B9A9CC;
+  --pie-tenue:  #8B7B9E;
+  --pie-marca:  #FFFBF7;
+
   --display: 'Gabarito', system-ui, sans-serif;
   --texto:   'Karla', system-ui, sans-serif;
 
@@ -154,8 +166,8 @@ a { color: inherit; }
 }
 .btn:hover { transform: translateY(-2px); }
 
-.btn--wa { background: var(--primario); color: #fff; }
-.btn--wa:hover { background: var(--primario-osc); }
+.btn--wa { background: var(--wa); color: #fff; }
+.btn--wa:hover { background: var(--wa-osc); }
 
 .btn--fantasma { border-color: currentColor; color: var(--tinta); }
 .btn--fantasma:hover { background: var(--tinta); color: var(--papel); }
@@ -549,12 +561,12 @@ a { color: inherit; }
   justify-content: center;
   padding: 1rem;
   border-radius: 999px;
-  background: var(--primario);
+  background: var(--wa);
   color: #fff;
   font-family: var(--display);
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 8px 24px rgba(37, 99, 201, 0.35);
+  box-shadow: 0 8px 24px rgba(226, 62, 107, 0.4);
 }
 @media (min-width: 34rem) { .flotante { display: none; } }
 
@@ -564,21 +576,23 @@ a { color: inherit; }
 /* --- Pie ----------------------------------------------------------------- */
 
 .pie {
-  background: var(--tinta);
-  color: var(--sobre-oscuro-tenue);
+  background: var(--pie-fondo);
+  color: var(--pie-texto);
   padding-block: 3rem;
-  border-top: 6px solid var(--primario);
+  border-top: 6px solid var(--wa);
 }
 .pie__caja { text-align: center; }
 .pie__marca {
   font-family: var(--display);
   font-weight: 900;
   font-size: 1.35rem;
-  color: var(--papel);
+  color: var(--pie-marca);
   letter-spacing: -0.03em;
 }
+/* El "dent" del pie sigue al rosa del pie, no al acento del resto del sitio. */
+.pie__marca .marca__dent { color: var(--wa); }
 .pie__linea { margin-top: 0.6rem; font-size: 0.95rem; }
-.pie__legal { margin-top: 1rem; font-size: 0.82rem; color: var(--sobre-oscuro-tenue); }
+.pie__legal { margin-top: 1rem; font-size: 0.82rem; color: var(--pie-tenue); }
 
 /* --- Accesibilidad ------------------------------------------------------- */
 
