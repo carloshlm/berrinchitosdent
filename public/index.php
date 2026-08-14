@@ -89,10 +89,13 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr�
     </div>
 
     <?php if ($cfg['horarios_confirmados']): ?>
-      <?php $sem = $cfg['horarios'][0]; ?>
-      <p class="hero__horario">
-        <?= e($sem['dias']) ?>, <?= e($sem['horas']) ?>
-      </p>
+      <?php
+        // Todos los días que abren, no solo el primero: si mañana agregan
+        // un día al config, el hero lo muestra sin tocar esta línea.
+        $abiertos = array_filter($cfg['horarios'], fn($h) => !empty($h['abre']));
+        $partes = array_map(fn($h) => e($h['dias']) . ', ' . e($h['horas']), $abiertos);
+      ?>
+      <p class="hero__horario"><?= implode(' <span class="hero__horario-sep">·</span> ', $partes) ?></p>
     <?php endif; ?>
 
     <div class="dientes" aria-hidden="true">
