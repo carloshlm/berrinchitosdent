@@ -236,8 +236,10 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr√
         <h3 class="dato__rotulo">D√≥nde</h3>
         <p class="dato__valor">
           <?= e($cfg['calle']) ?><br>
+          <?= e($cfg['colonia']) ?>, <?= e($cfg['alcaldia']) ?><br>
           C.P. <?= e($cfg['cp']) ?>, <?= e($cfg['ciudad']) ?>
         </p>
+        <p class="dato__referencia"><?= e($cfg['referencia']) ?></p>
         <a class="enlace" href="<?= e($cfg['maps']) ?>" target="_blank" rel="noopener">Ver en Google Maps</a>
       </div>
 

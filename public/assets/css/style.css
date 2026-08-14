@@ -509,6 +509,15 @@ a { color: inherit; }
 }
 .dato__valor { color: #D9CDE8; }
 
+/* La referencia de transporte: el dato que una mamá en el Metrobús busca
+   primero. Va destacada respecto del resto de la dirección. */
+.dato__referencia {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  color: var(--mango);
+  font-weight: 700;
+}
+
 .enlace {
   color: var(--papel);
   text-decoration-color: var(--buganvilia);

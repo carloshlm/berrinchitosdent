@@ -19,10 +19,16 @@ return [
     'telefono_tel'  => '+525571314033', // para el href="tel:"
     'email'         => 'berrinchitosdentdraluna@gmail.com',
 
-    'calle'   => 'Avenida Baja California 218, int. 103',
-    'cp'      => '06760',
-    'ciudad'  => 'Ciudad de México',
-    'maps'    => 'https://www.google.com/maps/search/?api=1&query=Avenida+Baja+California+218+06760+Ciudad+de+Mexico',
+    'calle'    => 'Avenida Baja California 218, int. 103',
+    'colonia'  => 'Col. Roma Sur',
+    'alcaldia' => 'Alcaldía Cuauhtémoc',
+    'cp'       => '06760',
+    'ciudad'   => 'Ciudad de México',
+    'maps'     => 'https://www.google.com/maps/search/?api=1&query=Avenida+Baja+California+218+06760+Ciudad+de+Mexico',
+
+    // Referencia de transporte. Ajustar el número de cuadras cuando esté
+    // confirmado en el terreno — no publicar distancias inventadas.
+    'referencia' => 'A unas cuadras del Metrobús Centro Médico (Línea 3)',
 
     /**
      * Si esto pasa a false, el sitio deja de publicar horarios y vuelve a
