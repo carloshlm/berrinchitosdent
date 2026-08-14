@@ -114,12 +114,20 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr�
 
 <section class="seccion seccion--lila" id="primera-visita">
   <div class="caja">
-    <p class="eyebrow">La primera visita</p>
-    <h2 class="titulo">¿Qué tan berrinchudo viene hoy?</h2>
-    <p class="entrada">
-      Ningún niño llega igual, así que ninguna primera cita es igual. Elige cómo se pone el tuyo
-      y te decimos qué pasa cuando cruza la puerta.
-    </p>
+    <div class="par">
+      <div>
+        <p class="eyebrow">La primera visita</p>
+        <h2 class="titulo">¿Qué tan berrinchudo viene hoy?</h2>
+        <p class="entrada">
+          Ningún niño llega igual, así que ninguna primera cita es igual. Elige cómo se pone el tuyo
+          y te decimos qué pasa cuando cruza la puerta.
+        </p>
+      </div>
+      <figure class="foto">
+        <img src="<?= e(v('/assets/img/juguetes.webp')) ?>" alt="La Dra. Arleth muestra la repisa de juguetes tejidos del consultorio" width="1200" height="1200" loading="lazy">
+        <figcaption>Los premios de la repisa: tejidos por la doctora, uno por visita valiente.</figcaption>
+      </figure>
+    </div>
 
     <div class="escala">
       <?php foreach ($escala as $i => $paso): ?>
@@ -153,12 +161,19 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr�
 
 <section class="seccion" id="ninos">
   <div class="caja">
-    <p class="eyebrow">Para los chiquitos</p>
-    <h2 class="titulo">Lo que hacemos</h2>
-    <p class="entrada">
-      Los dientes de leche no son un ensayo: guardan el espacio de los definitivos, y una infección
-      en ellos afecta al diente que viene abajo. Por eso se tratan, no se esperan.
-    </p>
+    <div class="par">
+      <div>
+        <p class="eyebrow">Para los chiquitos</p>
+        <h2 class="titulo">Lo que hacemos</h2>
+        <p class="entrada">
+          Los dientes de leche no son un ensayo: guardan el espacio de los definitivos, y una infección
+          en ellos afecta al diente que viene abajo. Por eso se tratan, no se esperan.
+        </p>
+      </div>
+      <figure class="foto">
+        <img src="<?= e(v('/assets/img/unidad-dental.webp')) ?>" alt="Unidad dental del consultorio, con sillón azul" width="750" height="500" loading="lazy">
+      </figure>
+    </div>
 
     <ul class="rejilla">
       <?php foreach ($servicios_ninos as $s): ?>
@@ -229,6 +244,10 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr�
         terminar el tratamiento: es que tu hijo quiera volver.
       </p>
       <a class="btn btn--wa btn--grande" href="<?= e($wa) ?>" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+
+      <figure class="foto foto--consultorio">
+        <img src="<?= e(v('/assets/img/en-accion.webp')) ?>" alt="La Dra. Arleth Luna atendiendo a un paciente pequeño en el consultorio" width="1200" height="1200" loading="lazy">
+      </figure>
     </div>
 
     <div class="datos">
@@ -241,6 +260,11 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr�
         </p>
         <p class="dato__referencia"><?= e($cfg['referencia']) ?></p>
         <a class="enlace" href="<?= e($cfg['maps']) ?>" target="_blank" rel="noopener">Ver en Google Maps</a>
+
+        <figure class="foto foto--fachada">
+          <img src="<?= e(v('/assets/img/fachada.webp')) ?>" alt="Fachada del edificio de Avenida Baja California 218" width="1024" height="649" loading="lazy">
+          <figcaption class="foto__pie-claro">Busca el 218 en la columna de la entrada.</figcaption>
+        </figure>
       </div>
 
       <div class="dato">

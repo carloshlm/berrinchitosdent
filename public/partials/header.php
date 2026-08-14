@@ -39,6 +39,10 @@ $desc   = $desc   ?? 'Consultorio de odontopediatría de la Dra. Arleth Luna en 
 <meta property="og:description" content="<?= e($desc) ?>">
 <meta property="og:url" content="https://berrinchitosdent.com/">
 <meta property="og:locale" content="es_MX">
+<?php /* JPG y no WebP: WhatsApp y Facebook no siempre renderizan WebP en la vista previa */ ?>
+<meta property="og:image" content="https://berrinchitosdent.com<?= e(v('/assets/img/og-berrinchitos.jpg')) ?>">
+<meta property="og:image:width" content="534">
+<meta property="og:image:height" content="641">
 
 <link rel="icon" href="<?= e(v('/assets/img/favicon.svg')) ?>" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
