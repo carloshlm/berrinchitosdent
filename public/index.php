@@ -252,7 +252,6 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr√
 
       <figure class="foto foto--consultorio">
         <img src="<?= e(v('/assets/img/odontopediatra.webp')) ?>" alt="La Dra. Arleth muestra la repisa de juguetes tejidos del consultorio" width="1200" height="1200" loading="lazy">
-        <figcaption class="foto__pie-claro">Los premios de la repisa: tejidos por la doctora, uno por visita valiente.</figcaption>
       </figure>
     </div>
 
