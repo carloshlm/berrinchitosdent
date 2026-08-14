@@ -1,0 +1,585 @@
+/* ==========================================================================
+   Berrinchitosdent — hoja única.
+   Paleta: buganvilia (la flor de la CDMX), mango y menta sobre papel cálido.
+   Deliberadamente NO azul bebé: ese es el uniforme de todo consultorio infantil.
+   ========================================================================== */
+
+:root {
+  --papel:        #FFFBF7;
+  --tinta:        #2A1B3D;
+  --tinta-suave:  #61507A;
+  --buganvilia:   #E23E6B;
+  --buganvilia-o: #C22753;
+  --mango:        #FFC53D;
+  --menta:        #2FB89A;
+  --lila:         #F5EDFC;
+  --menta-claro:  #E3F6F1;
+  --linea:        #E8DCEF;
+
+  --display: 'Gabarito', system-ui, sans-serif;
+  --texto:   'Karla', system-ui, sans-serif;
+
+  --r-chico:  12px;
+  --r-medio:  20px;
+  --r-grande: 32px;
+
+  --ancho: 1140px;
+  --paso:  clamp(3.5rem, 8vw, 7rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+
+body {
+  margin: 0;
+  /* clip y no hidden: hidden en body rompe el position:sticky de la barra. */
+  overflow-x: clip;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: clamp(1rem, 0.97rem + 0.2vw, 1.075rem);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--display); line-height: 1.05; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+img, svg { max-width: 100%; }
+
+a { color: inherit; }
+
+/* Los cortes de línea escritos a mano solo valen cuando hay ancho para
+   sostenerlos. En un teléfono fuerzan una línea que no entra y estiran la
+   página entera. */
+.br-md { display: none; }
+@media (min-width: 48rem) { .br-md { display: inline; } }
+
+:focus-visible {
+  outline: 3px solid var(--buganvilia);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.saltar {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--tinta);
+  color: var(--papel);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+.saltar:focus { left: 0.5rem; top: 0.5rem; }
+
+/* --- Estructura ---------------------------------------------------------- */
+
+.caja {
+  width: min(100% - 2.5rem, var(--ancho));
+  margin-inline: auto;
+}
+
+.caja--par {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: start;
+}
+@media (min-width: 60rem) {
+  .caja--par { grid-template-columns: 1fr 1fr; align-items: center; }
+}
+
+.seccion { padding-block: var(--paso); }
+.seccion--lila  { background: var(--lila); }
+.seccion--menta { background: var(--menta-claro); }
+.seccion--tinta { background: var(--tinta); color: var(--papel); }
+
+/* --- Tipografía de sección ----------------------------------------------- */
+
+.eyebrow {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--buganvilia);
+  margin-bottom: 0.9rem;
+}
+.eyebrow--claro { color: var(--mango); }
+
+.titulo {
+  font-size: clamp(2rem, 1.4rem + 2.8vw, 3.4rem);
+  font-weight: 800;
+  max-width: 20ch;
+}
+.titulo--claro { color: var(--papel); }
+
+.entrada {
+  margin-top: 1.25rem;
+  max-width: 58ch;
+  font-size: 1.075em;
+  color: var(--tinta-suave);
+}
+.entrada--claro { color: #D9CDE8; }
+
+.nota {
+  margin-top: 1.5rem;
+  padding-left: 1.1rem;
+  border-left: 4px solid var(--mango);
+  font-style: italic;
+  color: var(--tinta-suave);
+}
+
+/* --- Botones ------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  transition: transform 0.16s ease, background-color 0.16s ease, color 0.16s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn--wa { background: var(--buganvilia); color: #fff; }
+.btn--wa:hover { background: var(--buganvilia-o); }
+
+.btn--fantasma { border-color: currentColor; color: var(--tinta); }
+.btn--fantasma:hover { background: var(--tinta); color: var(--papel); }
+
+.btn--grande { padding: 0.95rem 1.8rem; font-size: 1.05rem; }
+
+/* --- Barra superior ------------------------------------------------------ */
+
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--papel) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--linea);
+}
+
+.barra__caja {
+  width: min(100% - 2.5rem, var(--ancho));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 4.25rem;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  margin-right: auto;
+}
+.marca__diente { display: block; width: 0.85rem; color: var(--buganvilia); }
+.marca__dent { color: var(--buganvilia); }
+
+.nav { display: none; gap: 1.4rem; }
+.nav a {
+  font-size: 0.94rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--tinta-suave);
+  padding-block: 0.3rem;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--tinta); border-bottom-color: var(--mango); }
+@media (min-width: 64rem) { .nav { display: flex; } }
+
+.barra__cta { display: none; }
+@media (min-width: 34rem) { .barra__cta { display: inline-flex; } }
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(3rem, 7vw, 6rem) clamp(2.5rem, 5vw, 4rem);
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, #FDE7EF 0%, transparent 60%),
+    radial-gradient(45rem 25rem at 5% 10%, #FFF4DA 0%, transparent 55%);
+}
+
+.hero__caja {
+  width: min(100% - 2.5rem, var(--ancho));
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero__titulo {
+  font-size: clamp(1.95rem, 1rem + 4.4vw, 5.25rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hero__bajada {
+  margin: 1.5rem auto 0;
+  max-width: 46ch;
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+  color: var(--tinta-suave);
+}
+.hero__bajada em { color: var(--tinta); font-style: italic; }
+
+.hero__acciones {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+/* Sale del config, no escrito a mano: si cambian los horarios, esta línea
+   cambia con ellos en lugar de quedar mintiendo. */
+.hero__horario {
+  margin-top: 1.25rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+
+/* La hilera de dientes de leche: uno está flojo y otro ya se cayó.
+   Es el retrato exacto de un niño de seis años. */
+.dientes {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(0.5rem, 1.6vw, 1rem);
+  color: #fff;
+}
+.dientes__uno {
+  width: clamp(2rem, 5vw, 3.1rem);
+  filter: drop-shadow(0 4px 0 #EFE0F8) drop-shadow(0 7px 10px rgba(42, 27, 61, 0.09));
+}
+/* El contorno es lo que separa el diente del papel: sin él, blanco sobre crema
+   desaparece y el hueco termina resaltando más que los dientes. */
+.dientes__uno svg { display: block; fill: #fff; stroke: #D9C6E8; stroke-width: 1.1; }
+
+/* El que ya se cayó: contorno punteado y nada adentro. Relleno de cualquier
+   color se lee como "diente de otro color", no como ausencia. */
+.dientes__uno--hueco { filter: none; }
+.dientes__uno--hueco svg {
+  fill: none;
+  stroke: #C6AFDA;
+  stroke-width: 1.6;
+  stroke-dasharray: 3 2.6;
+  stroke-linecap: round;
+}
+.dientes__uno--flojo {
+  transform-origin: 50% 100%;
+  animation: flojo 4.5s ease-in-out infinite;
+}
+@keyframes flojo {
+  0%, 74%, 100% { transform: rotate(0deg); }
+  80% { transform: rotate(-7deg); }
+  87% { transform: rotate(6deg); }
+  93% { transform: rotate(-3deg); }
+}
+
+.dientes__pie {
+  margin-top: 1.25rem;
+  font-size: 0.94rem;
+  color: var(--tinta-suave);
+}
+
+/* --- La escala del berrinche --------------------------------------------- */
+
+.escala { margin-top: clamp(2.25rem, 4vw, 3rem); }
+
+.escala__radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.escala__barra {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+}
+
+.escala__tecla {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1rem 1.1rem;
+  background: var(--papel);
+  border: 2px solid transparent;
+  border-radius: var(--r-medio);
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease;
+}
+.escala__tecla:hover { transform: translateY(-3px); }
+
+.escala__num {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--linea);
+  transition: color 0.16s ease;
+}
+
+.escala__cara {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--tinta-suave);
+}
+
+.escala__panel {
+  display: grid;
+  margin-top: 1.1rem;
+  background: var(--tinta);
+  color: var(--papel);
+  border-radius: var(--r-grande);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.ficha {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.ficha__titulo { font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); font-weight: 800; color: var(--mango); }
+.ficha__texto  { margin-top: 0.85rem; max-width: 60ch; color: #E3D9EE; font-size: 1.05em; }
+
+/* Estado activo: una regla por nivel, con la misma especificidad. */
+#nivel1:checked ~ .escala__panel .ficha--1,
+#nivel2:checked ~ .escala__panel .ficha--2,
+#nivel3:checked ~ .escala__panel .ficha--3,
+#nivel4:checked ~ .escala__panel .ficha--4,
+#nivel5:checked ~ .escala__panel .ficha--5 {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#nivel1:checked ~ .escala__barra label[for="nivel1"],
+#nivel2:checked ~ .escala__barra label[for="nivel2"],
+#nivel3:checked ~ .escala__barra label[for="nivel3"],
+#nivel4:checked ~ .escala__barra label[for="nivel4"],
+#nivel5:checked ~ .escala__barra label[for="nivel5"] {
+  border-color: var(--buganvilia);
+  background: #fff;
+}
+
+#nivel1:checked ~ .escala__barra label[for="nivel1"] .escala__num,
+#nivel2:checked ~ .escala__barra label[for="nivel2"] .escala__num,
+#nivel3:checked ~ .escala__barra label[for="nivel3"] .escala__num,
+#nivel4:checked ~ .escala__barra label[for="nivel4"] .escala__num,
+#nivel5:checked ~ .escala__barra label[for="nivel5"] .escala__num {
+  color: var(--buganvilia);
+}
+
+/* El foco de teclado vive en el radio, pero se ve en su etiqueta. */
+#nivel1:focus-visible ~ .escala__barra label[for="nivel1"],
+#nivel2:focus-visible ~ .escala__barra label[for="nivel2"],
+#nivel3:focus-visible ~ .escala__barra label[for="nivel3"],
+#nivel4:focus-visible ~ .escala__barra label[for="nivel4"],
+#nivel5:focus-visible ~ .escala__barra label[for="nivel5"] {
+  outline: 3px solid var(--buganvilia);
+  outline-offset: 3px;
+}
+
+.escala__cierre {
+  margin-top: 1.5rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--tinta-suave);
+  max-width: 60ch;
+}
+
+/* --- Rejilla de servicios ------------------------------------------------ */
+
+.rejilla {
+  list-style: none;
+  margin: clamp(2.25rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+}
+
+.tarjeta {
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: var(--r-medio);
+  transition: transform 0.16s ease, border-color 0.16s ease;
+}
+.tarjeta:hover { transform: translateY(-3px); border-color: var(--buganvilia); }
+
+.tarjeta__titulo { font-size: 1.15rem; font-weight: 700; }
+.tarjeta__texto  { margin-top: 0.5rem; font-size: 0.95rem; color: var(--tinta-suave); }
+
+/* --- Etapas por edad ----------------------------------------------------- */
+
+.etapas {
+  margin-top: clamp(2.25rem, 4vw, 3rem);
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+}
+
+.etapa {
+  background: var(--papel);
+  border-radius: var(--r-grande);
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.etapa__cabeza { padding-bottom: 1rem; border-bottom: 2px dashed var(--menta); }
+.etapa__edad { font-size: 1.5rem; font-weight: 800; color: var(--menta); }
+.etapa__hito { margin-top: 0.35rem; font-size: 0.92rem; font-weight: 700; color: var(--tinta); }
+
+.etapa__lista {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+.etapa__lista li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
+}
+.etapa__lista li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--mango);
+}
+
+/* --- Adultos ------------------------------------------------------------- */
+
+.pastillas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.pastilla {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: 999px;
+  background: var(--lila);
+  border: 2px solid var(--linea);
+}
+
+/* --- Consultorio --------------------------------------------------------- */
+
+.datos { display: grid; gap: 1.75rem; }
+
+.dato__rotulo {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mango);
+  margin-bottom: 0.5rem;
+}
+.dato__valor { color: #D9CDE8; }
+
+.enlace {
+  color: var(--papel);
+  text-decoration-color: var(--buganvilia);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.enlace:hover { color: var(--mango); }
+
+.horarios { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+.horarios li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #D9CDE8;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+/* El día cerrado se muestra, pero no compite con los días útiles. */
+.horarios__cerrado { color: #8B7B9E; }
+
+/* --- Botón flotante (solo móvil) ----------------------------------------- */
+
+.flotante {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 999px;
+  background: var(--buganvilia);
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(226, 62, 107, 0.4);
+}
+@media (min-width: 34rem) { .flotante { display: none; } }
+
+/* Deja aire abajo para que el botón flotante no tape el pie. */
+@media (max-width: 33.99rem) { .pie { padding-bottom: 6rem; } }
+
+/* --- Pie ----------------------------------------------------------------- */
+
+.pie {
+  background: var(--tinta);
+  color: #B9A9CC;
+  padding-block: 3rem;
+  border-top: 6px solid var(--buganvilia);
+}
+.pie__caja { text-align: center; }
+.pie__marca {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.35rem;
+  color: var(--papel);
+  letter-spacing: -0.03em;
+}
+.pie__linea { margin-top: 0.6rem; font-size: 0.95rem; }
+.pie__legal { margin-top: 1rem; font-size: 0.82rem; color: #8B7B9E; }
+
+/* --- Accesibilidad ------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

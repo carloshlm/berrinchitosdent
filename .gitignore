@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Datos del servidor: IP, usuario y clave. Nunca al repo.
+deploy.env
+
+# Guía de infraestructura: describe el VPS compartido, sus rutas y accesos.
+# Se queda en local a propósito — este repo es público.
+Berrinchitos-SETUP.md
