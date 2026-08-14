@@ -41,17 +41,17 @@ return [
     'horarios' => [
         [
             'dias'   => 'Lunes a viernes',
-            'horas'  => '9:00 am – 9:00 pm',
+            'horas'  => '11:00 am – 8:00 pm',
             'schema' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-            'abre'   => '09:00',
-            'cierra' => '21:00',
+            'abre'   => '11:00',
+            'cierra' => '20:00',
         ],
         [
             'dias'   => 'Sábado',
-            'horas'  => '9:00 am – 3:00 pm',
+            'horas'  => '8:00 am – 2:00 pm',
             'schema' => ['Saturday'],
-            'abre'   => '09:00',
-            'cierra' => '15:00',
+            'abre'   => '08:00',
+            'cierra' => '14:00',
         ],
         [
             'dias'  => 'Domingo',
