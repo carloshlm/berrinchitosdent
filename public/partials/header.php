@@ -10,6 +10,18 @@ function e(string $s): string {
 
 $wa = 'https://wa.me/' . $cfg['whatsapp'] . '?text=' . rawurlencode($cfg['whatsapp_msg']);
 
+/**
+ * Cache busting. Cloudflare cachea los estáticos 4 horas: sin esto, un cambio
+ * de CSS tarda hasta 4 h en verse y hay que purgar la caché a mano cada deploy.
+ * La marca de tiempo del archivo cambia sola con cada rsync, así que la URL
+ * cambia sola y Cloudflare la sirve fresca.
+ */
+function v(string $rutaPublica): string {
+    $abs = __DIR__ . '/..' . $rutaPublica;
+    $t = is_file($abs) ? filemtime($abs) : null;
+    return $rutaPublica . ($t ? '?v=' . $t : '');
+}
+
 $titulo = $titulo ?? 'Berrinchitosdent · Odontopediatría en la Ciudad de México';
 $desc   = $desc   ?? 'Consultorio de odontopediatría de la Dra. Arleth Luna en la Ciudad de México. Atención dental para niños, sin apuros y sin regaños. También atendemos adultos.';
 ?>
@@ -28,11 +40,11 @@ $desc   = $desc   ?? 'Consultorio de odontopediatría de la Dra. Arleth Luna en 
 <meta property="og:url" content="https://berrinchitosdent.com/">
 <meta property="og:locale" content="es_MX">
 
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="<?= e(v('/assets/img/favicon.svg')) ?>" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;800;900&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="<?= e(v('/assets/css/style.css')) ?>">
 
 <?php
 $negocio = [
@@ -88,7 +100,7 @@ if ($cfg['horarios_confirmados']) {
       <a href="#ninos">Niños</a>
       <a href="#en-casa">En casa</a>
       <a href="#adultos">Adultos</a>
-      <a href="#consultorio">Consultorio</a>
+      <a href="#ubicacion">Ubicación</a>
     </nav>
 
     <a class="btn btn--wa barra__cta" href="<?= e($wa) ?>" target="_blank" rel="noopener">
