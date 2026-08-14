@@ -93,10 +93,8 @@ if ($cfg['horarios_confirmados']) {
 <header class="barra">
   <div class="barra__caja">
     <a class="marca" href="/">
-      <span class="marca__diente" aria-hidden="true">
-        <svg viewBox="0 0 24 32" fill="currentColor"><path d="M0 10C0 2 5 0 12 0s12 2 12 10c0 10-4 22-7 22s-3-8-5-8-2 8-5 8S0 20 0 10Z"/></svg>
-      </span>
-      <span class="marca__texto">Berrinchitos<span class="marca__dent">dent</span></span>
+      <?php /* Logo arriba del pliegue: sin lazy, que cargue con la página */ ?>
+      <img class="marca__logo" src="<?= e(v('/assets/img/logo-berrinchitos.webp')) ?>" alt="Berrinchitosdent · Consultorio Dental" width="900" height="198">
     </a>
 
     <nav class="nav" aria-label="Secciones">

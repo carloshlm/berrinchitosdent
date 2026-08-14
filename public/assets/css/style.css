@@ -224,8 +224,13 @@ a { color: inherit; }
   letter-spacing: -0.03em;
   margin-right: auto;
 }
-.marca__diente { display: block; width: 0.85rem; color: var(--buganvilia); }
-.marca__dent { color: var(--buganvilia); }
+/* El logo mide 900x198 (4.54:1): se fija la ALTURA y el ancho acompaña.
+   Los width/height del HTML solo reservan el espacio para que nada salte. */
+.marca__logo {
+  display: block;
+  height: 2.7rem;
+  width: auto;
+}
 
 .nav { display: none; gap: 1.4rem; }
 .nav a {
@@ -620,14 +625,13 @@ a { color: inherit; }
   border-top: 6px solid var(--buganvilia);
 }
 .pie__caja { text-align: center; }
-.pie__marca {
-  font-family: var(--display);
-  font-weight: 900;
-  font-size: 1.35rem;
-  color: var(--papel);
-  letter-spacing: -0.03em;
+.pie__logo {
+  display: block;
+  height: 3.2rem;
+  width: auto;
+  margin-inline: auto;
 }
-.pie__linea { margin-top: 0.6rem; font-size: 0.95rem; }
+.pie__linea { margin-top: 1rem; font-size: 0.95rem; }
 .pie__legal { margin-top: 1rem; font-size: 0.82rem; color: #8B7B9E; }
 
 /* --- Accesibilidad ------------------------------------------------------- */

@@ -3,7 +3,7 @@
 
 <footer class="pie">
   <div class="caja pie__caja">
-    <p class="pie__marca">Berrinchitos<span class="marca__dent">dent</span></p>
+    <img class="pie__logo" src="<?= e(v('/assets/img/logo-berrinchitos.webp')) ?>" alt="Berrinchitosdent · Consultorio Dental" width="900" height="198" loading="lazy">
     <p class="pie__linea">
       <?= e($cfg['doctora']) ?> · <?= e($cfg['calle']) ?>, <?= e($cfg['ciudad']) ?>
     </p>
