@@ -523,6 +523,7 @@ a { color: inherit; }
   flex-wrap: wrap;
   gap: 0.7rem;
 }
+.pastillas--con-foto { margin-top: 1.25rem; justify-content: center; }
 .pastilla {
   font-family: var(--display);
   font-weight: 700;

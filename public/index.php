@@ -225,11 +225,16 @@ $servicios_adultos = ['Limpieza dental', 'Resinas', 'Endodoncia', 'Coronas y pr�
         Los niños aprenden lo que ven. El que acompaña a un papá que se atiende, se atiende.
       </p>
     </div>
-    <ul class="pastillas">
-      <?php foreach ($servicios_adultos as $s): ?>
-        <li class="pastilla"><?= e($s) ?></li>
-      <?php endforeach; ?>
-    </ul>
+    <div>
+      <figure class="foto">
+        <img src="<?= e(v('/assets/img/sala-espera.webp')) ?>" alt="Sala de espera del consultorio" width="1066" height="800" loading="lazy">
+      </figure>
+      <ul class="pastillas pastillas--con-foto">
+        <?php foreach ($servicios_adultos as $s): ?>
+          <li class="pastilla"><?= e($s) ?></li>
+        <?php endforeach; ?>
+      </ul>
+    </div>
   </div>
 </section>
 
