@@ -29,6 +29,7 @@ if [[ -z "$(ls -A public 2>/dev/null)" ]]; then
 fi
 
 rsync -avz --delete \
+  --exclude '.DS_Store' \
   -e "ssh -i ${DEPLOY_KEY}" \
   public/ \
   "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}"
